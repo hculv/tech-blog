@@ -1,5 +1,7 @@
 [
-    {
-      "comment-description": "Comment."
-    }
-  ]
+	{
+		"project_id": 3,
+		"description": "Test comment",
+		"user_id": 1
+	}
+]
