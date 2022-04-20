@@ -6,6 +6,7 @@
 //   async function commentFormHandler(event) {
 //     event.preventDefault();
 
+
 //     const commentContent = document.querySelector("input[name='comment-body']").value;
 //     inputComment = commentContent.value;
 //     console.log(inputComment);
@@ -48,8 +49,9 @@
   const commentFormHandler = async function (event) {
     event.preventDefault();
   
-    const blog_id = document.querySelector('.new-comment-form').dataset.blogid;
+    const blog_id = document.querySelector('.new-comment-form').dataset.blogId;
     const comment_description = document.querySelector('#comment_description').value.trim();
+    const Project = document.querySelector('#commentList');
 
     if (comment_description) {
       await fetch('/api/comments', {
@@ -65,7 +67,7 @@
     }
     console.log(comment_description);
 // document.createElement('<div>${comment_description}</div>');
-document.append('.new-comment-form').write((comment_description));
+Project.append(comment_description)
 
   };
   

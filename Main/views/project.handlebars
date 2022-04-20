@@ -38,7 +38,10 @@
 
 		{{/if}}
 
-		<h2 class="text-center">Comments</h2>
+		<h2 class="text-center comment-header">Comments</h2>
+    <ul>
+      <li id="commentList"></li>
+    </ul>
 		{{#each comments as |comment|}}
 		<div>
 			<p class="text-center" id="comment.descrip">{{comment.description}}</p>
