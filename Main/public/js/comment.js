@@ -1,31 +1,45 @@
-const commentID = document.querySelector('input[name="comment-body"]').value;
 
-console.log("testing");
-console.log(commentID);
 
-const commentFormHandler = async (event) => {
-  event.preventDefault();
 
-  console.log(commentContent);
-  const description = document.querySelector('.comment-body').value.trim();
 
-  if (description) {
-    const response = await fetch(`/api/projects`, {
-      method: 'POST',
-      body: JSON.stringify({description }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  
+  async function commentFormHandler(event) {
+    event.preventDefault();
 
-    if (response.ok) {
-      document.location.append('.new-comment-form');
-    } else {
-      alert('Failed to post comment');
-    }
+    const commentContent = document.querySelector(" input[name='comment-body']").textContent;
+
+    // const post_id = window.location.toString().split('/')[
+    //     window.location.toString().split('/').length - 1
+    // ];
+
+    if (commentContent) {
+      // problem here not await or fetch -- submit input
+        const response =  {
+            method: 'POST',
+            body: JSON.stringify({
+                // post_id,
+                commentContent })
+            
+            // headers: {
+            //     'Content-Type': 'application/json'
+            // }
+            
+        };
+        console.log(response);
+
+        if (response.ok) {
+
+          document.appendChild(response);
+          
+
+        } else {
+            alert(response.statusText);
+            document.querySelector('.comment-button').style.display = "block";
+        };
+    };
   }
-};
 
-document
-  .querySelector('.new-comment-form')
+document.querySelector('.comment-form')
   .addEventListener('submit', commentFormHandler);
+
+
