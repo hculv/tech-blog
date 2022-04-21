@@ -26,4 +26,9 @@ header, .project:not(:last-child) {
 li {
   list-style: none;
   text-align: left;
+  border-bottom: lightgray;
+}
+
+.project_description{
+  text-align: left;
 }

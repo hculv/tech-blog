@@ -49,7 +49,7 @@
   const commentFormHandler = async function (event) {
     event.preventDefault();
   
-    const blog_id = document.querySelector('.new-comment-form').dataset.blogId;
+    const blog_id = document.querySelector('.createdBy');
     const comment_description = document.querySelector('#comment_description').value.trim();
     const Project = document.querySelector('#commentList');
 
@@ -68,7 +68,8 @@
     }
     console.log(comment_description);
 // document.createElement('<div>${comment_description}</div>');
-Project.append(comment_description)
+Project.append(comment_description);
+comment_description.append(blog_id)
 
   };
   
