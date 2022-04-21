@@ -53,6 +53,7 @@
     const comment_description = document.querySelector('#comment_description').value.trim();
     const Project = document.querySelector('#commentList');
 
+
     if (comment_description) {
       await fetch('/api/comments', {
         method: 'POST',
