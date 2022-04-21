@@ -38,6 +38,27 @@ const delButtonHandler = async (event) => {
   }
 };
 
+
+const editButtonHandler = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+
+    const response = await fetch(`/api/projects/${id}`, {
+      method: 'POST',
+      body: JSON.stringify({ description }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to update project');
+    }
+  }
+};
+
 document
   .querySelector('.new-project-form')
   .addEventListener('submit', newFormHandler);
@@ -45,3 +66,7 @@ document
 document
   .querySelector('.project-list')
   .addEventListener('click', delButtonHandler);
+
+  // document
+  // .querySelector("#edit-btn")
+  // .addEventListener('click', editButtonHandler);
